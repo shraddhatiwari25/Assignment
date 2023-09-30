@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5</title>
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(252, 253, 211, 1) 0%, rgba(222, 178, 193, 1) 25%, rgba(194, 107, 172, 1) 100%);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0001fb;
+        }
+
+        button {
+            width: fit-content;
+            justify-self: center;
+            margin-top: 20px;
+        }
+
+        th {
+            text-align: end;
+        }
+
+        table,
+        td,
+        tr {
+            border-collapse: collapse;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+        }
+
+        #submitBtn {
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 5px 20px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registration Form</h2>
+    <form name="registration" onsubmit="return formValidation();">
+        <table cellpadding="7">
+            <tr>
+                <th>First Name</th>
+                <td><input type="text" name="username" /></td>
+                <td id="fname"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text" name="username" /></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email" name="email" /></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" name="pass" /></td>
+            </tr>
+            <tr>
+                <th>Re-enter Password</th>
+                <td><input type="password" name="pass2" /></td>
+            </tr>
+            <tr>
+                <th rowspan="2">Gender:</th>
+                <td><input type="radio" name="gender" value="male" />Male</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="gender" value="female" />Female</td>
+            </tr>
+            <tr>
+                <th>Age:</th>
+                <td><input type="number" name="age" /></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td><input type="number" name="age" /></td>
+            </tr>
+            <tr>
+                <th>Address:</th>
+                <td><textarea rows="5" cols="35"></textarea></td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td><input type="text" name="state" /></td>
+            </tr>
+            <tr>
+                <th>Country:</th>
+                <td>
+                    <select>
+                        <option disabled selected>Choose your country</option>
+                        <option>India</option>
+                        <option>USA</option>
+                        <option>UK</option>
+                        <option>Canada</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Languages Known</th>
+                <td>
+                    <input type="checkbox" name="lang" />English
+                    <input type="checkbox" name="lang" />Kannada
+                    <input type="checkbox" name="lang" />Hindi
+                    <input type="checkbox" name="lang" />Telugu
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="check" /> Hereby I declare all the given
+                    details are true
+                </td>
+            </tr>
+        </table>
+        <input id="submitBtn" type="submit" value="REGISTER">
+    </form>
+</body>
+<script>
+    function formValidation() {
+        var uname = document.registration.username;
+        var uadd = document.registration.address;
+        var uzip = document.registration.zip;
+        var uemail = document.registration.email;
+        var umsex = document.getElementById('msex');
+        var ufsex = document.getElementById('fsex');
+        if (allLetter(uname)) {
+            if (alphanumeric(uadd)) {
+                if (allnumeric(uzip)) {
+                    if (ValidateEmail(uemail)) {
+                        if (validsex(umsex, ufsex)) {
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    function allLetter(uname) {
+        var letters = /^[A-Za-z]+$/;
+        if (uname.value.match(letters)) {
+            return true;
+        }
+        else {
+            document.getElementById("fname").textContent = "Poor";
+            uname.focus();
+            return false;
+        }
+    }
+
+    function alphanumeric(uadd) {
+        var letters = /^[0-9a-zA-Z]+$/;
+        if (uadd.value.match(letters)) {
+            return true;
+        }
+        else {
+            alert('User address must have alphanumeric characters only');
+            uadd.focus();
+            return false;
+        }
+    }
+
+    function allnumeric(uzip) {
+        var numbers = /^[0-9]+$/;
+        if (uzip.value.match(numbers)) {
+            return true;
+        }
+        else {
+            alert('ZIP code must have numeric characters only');
+            uzip.focus();
+            return false;
+        }
+    }
+
+    function ValidateEmail(uemail) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (uemail.value.match(mailformat)) {
+            return true;
+        }
+        else {
+            alert("You have entered an invalid email address!");
+            uemail.focus();
+            return false;
+        }
+    }
+
+    function validsex(umsex, ufsex) {
+        x = 0;
+
+        if (umsex.checked) {
+            x++;
+        } if (ufsex.checked) {
+            x++;
+        }
+        if (x == 0) {
+            alert('Select Male/Female');
+            umsex.focus();
+            return false;
+        }
+        else {
+            alert('Form Successfully Submitted');
+            window.location.reload()
+            return true;
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>BS Task 6</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F7F7F7;
+        }
+
+        form {
+            margin-top: 2em;
+            width: 25%;
+        }
+
+        p {
+            margin-top: 2em;
+        }
+
+        input {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="needs-validation">
+        <label for="name" class="form-label">Name</label>
+        <input class="form-control" type="text" name="name" id="name">
+        <div class="invalid-feedback">
+            Name is required
+        </div>
+        <label for="email" class="form-label">Email</label>
+        <input class="form-control" type="email" name="email" id="email">
+        <div class="invalid-feedback">
+            Email is required
+        </div>
+        <label for="pass" class="form-label">Password</label>
+        <input class="form-control" type="password" name="pass" id="pass">
+        <div class="invalid-feedback">
+            Password is required
+        </div>
+        <label for="hobbies" class="form-label">Hobbies</label>
+        <input class="form-control" type="text" name="hobbies" id="hobbies">
+        <br>
+        <button class="btn btn-danger" type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

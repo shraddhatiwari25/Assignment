@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task 7</title>
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p {
+            color: #000472;
+            font-size: larger;
+            font-weight: bold;
+            grid-row: 2;
+        }
+
+        #myImg {
+            max-height: 150px;
+            grid-row: 1;
+        }
+
+        input[type=button] {
+            grid-row: 3;
+            max-width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="myImg" src="train.jpg" />
+    <p>Click the following buttons to handle animation</p>
+    <input type="button" value="Start" onclick="moveRight();" />
+    <input type="button" value="Stop" onclick="stop();" />
+</body>
+<script type="text/javascript">
+    var imgObj = null;
+    var animate;
+    function init() {
+        imgObj = document.getElementById('myImg');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+    }
+    function moveRight() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+        animate = setTimeout(moveRight, 12);
+    }
+    function stop() {
+        clearTimeout(animate);
+        imgObj.style.left = '0px';
+    }
+    window.onload = init;
+
+</script>
+
+</html>

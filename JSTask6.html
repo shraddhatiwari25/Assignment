@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Task 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            width: 350px;
+            height: 582px;
+        }
+
+        .loginContainer {
+            margin: 0 0 10px;
+            padding: 10px 0;
+            background-color: #fafafa;
+            border: 1px solid #dbdbdb;
+            border-radius: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .iconContainer img {
+            width: 174px;
+            height: 50px;
+            margin: 36px 0 12px 0;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 40px;
+            margin-top: 24px;
+        }
+
+        .form input[type="text"] {
+            width: 100%;
+            background-color: #fafafa;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            height: 38px;
+            margin-bottom: 6px;
+            padding: 8px;
+            font-size: 12px;
+            color: #262626;
+            outline: none;
+        }
+
+        .form input::placeholder {
+            color: #8e8e8e;
+        }
+
+        .form button.submit {
+            margin: 8px 0;
+            width: 100%;
+            background-color: #007AFF;
+            color: #fff;
+            border: 1px solid transparent;
+            height: 40px;
+            font-size: 14px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .forgotPass {
+            color: #1471D0;
+            font-size: 14px;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #line {
+            grid-row: auto;
+            text-align: start;
+        }
+
+        #remember {
+            height: min-content;
+        }
+
+        span {
+            color: #1471D0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="loginContainer">
+            <div class="iconContainer">
+                <img src="https://logos-download.com/wp-content/uploads/2016/03/Instagram_Logo_2016.png"
+                    alt="instagram logo" />
+            </div>
+            <form class="form" id="form">
+                <input type="text" placeholder="Username" class="username" />
+                <input type="text" placeholder="Password" id="password" onchange="btnCheck()" />
+                <button class="submit" id="submit" type="submit">Log in</button>
+                <div id="line">
+                    <input type="checkbox" name="remember" id="remember" value="Remember Me"> Remember Me
+                    <a href="" class="forgotPass">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+        Don't have an account! <span>Sign up here.</a>
+    </div>
+</body>
+
+</html>
